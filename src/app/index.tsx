@@ -1,13 +1,13 @@
 import { FlatList, StyleSheet, View } from 'react-native';
-import DayListItemn from './src/components/DayListItemn';
 import { useFonts, Inter_900Black } from '@expo-google-fonts/inter';
 import {AmaticSC_700Bold} from '@expo-google-fonts/amatic-sc'
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
+import DayListItemn from '../components/DayListItemn';
 
 SplashScreen.preventAutoHideAsync();
 
-export default function App() {
+export default function HomeScreen() {
   let [fontsLoaded, fontError] = useFonts({
     Inter : Inter_900Black,
     Amatic : AmaticSC_700Bold
@@ -23,7 +23,7 @@ export default function App() {
     return null;
   }
 
-  const days:number[] = [...Array(24)].map((val,index)=>index+1)
+  const days:string[] = [...Array(24)].map((val,index)=>String(index+1))
 
   return (
     <View style={styles.container} onLayout={onLayoutRootView}>
